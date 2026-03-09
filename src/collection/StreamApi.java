@@ -3,6 +3,7 @@ package collection;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 class Stud {
     String name;
@@ -20,6 +21,12 @@ public class StreamApi {
                 .filter((e)->e.age>18).
                 forEach((e)-> System.out.println(e.age));
 
+        List<Integer> numbers = Arrays.asList(1,2,3,3,3,5,5,6,6,7,7);
+        List<Integer> output = numbers.stream()
+                .filter(n -> n % 2 == 0)
+                .map(n -> n * 2)
+                .collect(Collectors.toList());
+
     }
 }
 /*
@@ -32,6 +39,5 @@ public class StreamApi {
  Before using stream api, convert collection into stream and then use intermediate and terminal methods like filter, map, and reduce
 
  Google--> terminal and intermediate methods okay
-
 
  */
